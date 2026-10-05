@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&amp;family=IBM+Plex+Serif:ital,wght@0,400;1,400&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f3f2ec"></rect><text x="50" y="64" text-anchor="middle" font-family="Georgia,serif" font-size="44" fill="#3f6b4a">V</text></svg></template>
+<style>
+html,body{margin:0;background:#f3f2ec;color:#1c1d1a;-webkit-font-smoothing:antialiased}
+a{color:#1c1d1a;text-decoration:none;border-bottom:1px solid #b9bbb0}
+a:hover{color:#3f6b4a;border-color:#3f6b4a}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6">
+  <sc-if value="{{ paperGrid }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#d9e3d6 1px,transparent 1px),linear-gradient(90deg,#d9e3d6 1px,transparent 1px);background-size:24px 24px;opacity:0.7"></div>
+  </sc-if>
+
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-bottom:1px solid #1c1d1a;font-size:12px;letter-spacing:0.06em;text-transform:uppercase">
+      <span style="display:flex;align-items:center;gap:10px;font-weight:500">Vasvi / Field Notebook<img src="doodles/pencil.svg" alt="" style="width:56px;transform:rotate(-8deg)"></span>
+      <nav style="display:flex;gap:24px;flex-wrap:wrap">
+        <a href="#plates" style="border:0">Plates</a>
+        <a href="#index" style="border:0">Index</a>
+        <a href="#notes" style="border:0">Notes</a>
+        <a href="#contact" style="border:0">Contact</a>
+      </nav>
+      <span style="color:#5e6058">Vol. 01 · 2026</span>
+    </header>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,5vw,72px);padding:clamp(48px,7vw,96px) 0 clamp(40px,6vw,72px)">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#3f6b4a"><span>Observations in nature photography</span><img src="doodles/dragonfly.svg" alt="" style="width:52px;transform:rotate(14deg)"></div>
+          <div style="display:flex;align-items:center;gap:clamp(12px,2vw,24px);flex-wrap:wrap">
+            <h1 style="margin:0;font-family:'IBM Plex Serif',Georgia,serif;font-weight:400;font-size:clamp(56px,8vw,112px);line-height:0.95;letter-spacing:-0.03em">Vasvi</h1>
+            <img src="doodles/neuron.svg" alt="" style="width:clamp(110px,13vw,170px);transform:rotate(-6deg);opacity:0.9">
+          </div>
+          <p style="margin:0;max-width:440px;font-family:'IBM Plex Serif',Georgia,serif;font-size:20px;line-height:1.45;color:#3a3c36;text-wrap:pretty">I keep two lab notebooks. One is for the bench. This is the other: a record of plants, insects and animals, kept with the same attention and care, and a fair account of where my time goes when I'm not in the lab.</p>
+        </div>
+        <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;border-top:1px solid #1c1d1a">
+          <dt style="padding:10px 24px 10px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Observer</dt>
+          <dd style="margin:0;padding:10px 0;border-bottom:1px solid #c9cabf">Vasvi Jain</dd>
+          <dt style="padding:10px 24px 10px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Subject</dt>
+          <dd style="margin:0;padding:10px 0;border-bottom:1px solid #c9cabf">Plants, animals, landscapes, cities</dd>
+          <dt style="padding:10px 24px 10px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Field</dt>
+          <dd style="margin:0;padding:10px 0;border-bottom:1px solid #c9cabf;display:flex;align-items:center;gap:10px">Neuroscience<img src="doodles/brain.svg" alt="" style="width:30px;transform:rotate(6deg)"></dd>
+          <dt style="padding:10px 24px 10px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Entries</dt>
+          <dd style="margin:0;padding:10px 0;border-bottom:1px solid #c9cabf">{{ total }} plates in 4 sections</dd>
+        </dl>
+      </div>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+        <div style="position:relative;aspect-ratio:4/5;width:100%;border:1px solid #1c1d1a;box-sizing:border-box">
+          <image-slot id="v2-hero" shape="rect" src="web/IMG_1273.jpg" placeholder="Frontispiece: your strongest nature photo"></image-slot>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;font-size:11px;color:#5e6058"><span style="display:flex;align-items:flex-start;gap:6px"><img src="doodles/arrow.svg" alt="" style="width:38px;margin-top:-10px">Frontispiece</span><span>Japanese maple (Acer palmatum) · New York</span></figcaption>
+      </figure>
+    </section>
+
+    <section id="index" style="padding:clamp(32px,5vw,56px) 0;border-top:1px solid #1c1d1a">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px">
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase"><span>Contents</span><img src="doodles/magnifier.svg" alt="" style="width:44px;transform:rotate(-10deg)"></div>
+        <sc-for list="{{ series }}" as="s" hint-placeholder-count="3">
+          <a href="{{ s.href }}" style="display:flex;flex-direction:column;gap:6px;border:0;border-top:6px solid {{ s.color }};padding-top:12px">
+            <span style="color:{{ s.ink }}">§ {{ s.num }}</span>
+            <span style="font-family:'IBM Plex Serif',Georgia,serif;font-size:24px">{{ s.title }}</span>
+            <span style="color:#5e6058">{{ s.range }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="plates" style="display:flex;flex-direction:column">
+      <sc-for list="{{ series }}" as="s" hint-placeholder-count="3">
+        <article id="{{ s.anchor }}" style="display:flex;flex-direction:column;gap:32px;padding:clamp(48px,7vw,96px) 0;border-top:1px solid #1c1d1a">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px 48px;align-items:end">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="color:{{ s.ink }};font-size:12px;letter-spacing:0.06em">§ {{ s.num }} · {{ s.range }}</span>
+              <div style="display:flex;align-items:center;gap:14px">
+                <h2 style="margin:0;font-family:'IBM Plex Serif',Georgia,serif;font-weight:400;font-size:clamp(36px,4.4vw,56px);letter-spacing:-0.02em;line-height:1">{{ s.title }}</h2>
+                <img src="{{ s.doodle }}" alt="" style="width:clamp(44px,5vw,64px);transform:rotate(8deg)">
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-end;gap:16px;max-width:520px"><p style="margin:0;color:#3a3c36;text-wrap:pretty">{{ s.blurb }}</p><img src="{{ s.doodle2 }}" alt="" style="width:clamp(40px,4.5vw,56px);flex-shrink:0;transform:rotate(-6deg)"></div>
+          </div>
+
+          <sc-if value="{{ isPlates }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(16px,2vw,28px)">
+              <sc-for list="{{ s.images }}" as="img" hint-placeholder-count="6">
+                <figure style="margin:0;display:flex;flex-direction:column;background:#faf9f4;border:1px solid #1c1d1a">
+                  <div style="position:relative;aspect-ratio:4/5;width:100%;border-bottom:1px solid #1c1d1a">
+                    <image-slot id="{{ img.id }}" shape="rect" src="{{ img.src }}" placeholder="{{ img.ph }}"></image-slot>
+                  </div>
+                  <figcaption style="flex:1;display:flex;flex-direction:column;padding:10px 12px 12px;gap:2px;font-size:11px;background:{{ s.tint }}">
+                    <div style="display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:500"><span>Pl. {{ img.pl }}</span><span style="color:#1c1d1a;background:{{ s.color }};padding:0 6px">{{ s.code }}</span></div>
+                    <sc-if value="{{ showMeta }}" hint-placeholder-val="{{ true }}">
+                      <div style="display:grid;grid-template-columns:72px 1fr;color:#3a3c36;padding-top:6px">
+                        <span style="color:#7a7c72">Subject</span><span>{{ img.subject }}</span>
+                        <span style="color:#7a7c72">Location</span><span>{{ img.loc }}</span>
+                        <span style="color:#7a7c72">Date</span><span>{{ img.date }}</span>
+                      </div>
+                    </sc-if>
+                  </figcaption>
+                </figure>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isSheet }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:8px;padding:8px;background:#1c1d1a">
+              <sc-for list="{{ s.images }}" as="img" hint-placeholder-count="6">
+                <figure style="margin:0;display:flex;flex-direction:column;gap:4px">
+                  <div style="position:relative;aspect-ratio:1/1;width:100%">
+                    <image-slot id="{{ img.id }}" shape="rect" src="{{ img.src }}" placeholder="{{ img.ph }}"></image-slot>
+                  </div>
+                  <figcaption style="font-size:10px;color:#d8d9cf;letter-spacing:0.04em;border-top:2px solid {{ s.color }};padding-top:4px">Pl. {{ img.pl }} · {{ s.code }}</figcaption>
+                </figure>
+              </sc-for>
+            </div>
+          </sc-if>
+        </article>
+      </sc-for>
+    </section>
+
+    <section id="notes" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,72px);padding:clamp(56px,7vw,96px) 0 clamp(24px,3vw,40px);border-top:1px solid #1c1d1a">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px;max-width:400px">
+        <div style="position:relative;aspect-ratio:3/4;width:100%;border:1px solid #1c1d1a;box-sizing:border-box">
+          <image-slot id="v2-portrait" shape="rect" src="web/IMG_0539.jpg" placeholder="Photo of you in the field"></image-slot>
+          <img src="doodles/marker.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,0.35))">
+          <div style="position:absolute;top:30%;right:5%;max-width:50%;font-family:'Caveat',cursive;font-weight:700;font-size:clamp(18px,2vw,24px);line-height:1;color:#fff;text-align:right;transform:rotate(-6deg);text-shadow:0 1px 2px rgba(0,0,0,0.45);pointer-events:none">rare sighting of the observer (usually seen from behind)</div>
+        </div>
+        <figcaption style="display:flex;align-items:center;gap:8px;font-size:11px;color:#5e6058"><img src="doodles/fern.svg" alt="" style="width:20px;transform:rotate(-12deg)">The observer, in the field · Central Park, New York</figcaption>
+        <img src="doodles/cat.svg" alt="" style="width:clamp(140px,14vw,180px);margin-top:20px;align-self:center;transform:rotate(-12deg)">
+      </figure>
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:600px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#3f6b4a"><span>Field notes</span><img src="doodles/camera.svg" alt="" style="width:40px;transform:rotate(-8deg)"></div>
+        <p style="margin:0;font-family:'IBM Plex Serif',Georgia,serif;font-size:clamp(22px,2.2vw,28px);line-height:1.4;text-wrap:pretty">Photography is where I first learned to notice small changes in what I was looking at.</p><img src="doodles/sprout.svg" alt="" style="width:36px;align-self:flex-end;transform:rotate(4deg)">
+        <p style="margin:0;color:#3a3c36;text-wrap:pretty">I've photographed since 2018, mostly plants, insects and birds in the places I've lived: Gurgaon and Delhi, and now New York. Most of it is slow work, waiting for a bee to settle or for the light to move across a leaf. The same habits carry into research: watching closely, staying patient with a subject that won't hold still, and noticing the detail that is easy to miss. I've always been a little camera shy, which is probably why I'm more comfortable behind one. (Hence the photo from behind.)</p>
+        <dl style="margin:8px 0 0;display:grid;grid-template-columns:max-content 1fr;border-top:1px solid #1c1d1a">
+          <dt style="padding:8px 24px 8px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Education</dt>
+          <dd style="margin:0;padding:8px 0;border-bottom:1px solid #c9cabf">B.S. Neuroscience and Computer Science; M.S. Biology (in progress)</dd>
+          <dt style="padding:8px 24px 8px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Research</dt>
+          <dd style="margin:0;padding:8px 0;border-bottom:1px solid #c9cabf">Tsien Lab, NYU Langone Health</dd>
+          <dt style="padding:8px 24px 8px 0;border-bottom:1px solid #c9cabf;color:#5e6058;text-transform:uppercase;font-size:11px;letter-spacing:0.06em">Equipment</dt>
+          <dd style="margin:0;padding:8px 0;border-bottom:1px solid #c9cabf">Canon EOS 7D with EF-S 15–85mm and EF 100–400mm L; Canon EOS R100 with RF-S 18–45mm</dd>
+        </dl>
+        <img src="doodles/dog-face.svg" alt="" style="width:clamp(140px,14vw,180px);align-self:flex-end;margin-top:16px;transform:rotate(8deg)">
+      </div>
+    </section>
+
+    <footer id="contact" style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px;padding:clamp(48px,6vw,80px) 0 32px;border-top:1px solid #1c1d1a">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#3f6b4a"><span>Correspondence</span><img src="doodles/butterfly.svg" alt="" style="width:46px;transform:rotate(-10deg)"></div>
+        <a href="mailto:vasvi.jain@hotmail.com" style="font-family:'IBM Plex Serif',Georgia,serif;font-size:clamp(26px,3.4vw,44px)">vasvi.jain@hotmail.com</a>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:12px">
+        <a href="Vasvi_Jain_Resume.pdf" target="_blank">Resume (PDF)</a>
+        <a href="https://www.instagram.com/vasvi.jain/" target="_blank">Instagram</a>
+        <span style="color:#5e6058">© 2026 Vasvi</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Plates&quot;,&quot;Contact sheet&quot;],&quot;default&quot;:&quot;Plates&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showMeta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;paperGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const view = this.props.view ?? 'Plates';
+    const defs = [
+      { title: 'Flora', code: 'FL', blurb: 'Close studies of plants, mostly in gardens and parks.', imgs: [
+        ['MVI_0878_still.jpeg', 'Eastern redbud (Cercis canadensis)', 'Niagara Falls, New York'],
+        ['MVI_0986_still.jpeg', 'Common lilac (Syringa vulgaris)', 'Niagara Falls, New York'],
+        ['IMG_1272.JPG', 'Japanese maple (Acer palmatum)', 'New York'],
+        ['06BEB729-16D5-4737-9AB9-863C413856A8.JPG', 'Sweetgum leaf (Liquidambar styraciflua)', 'Central Park, New York'],
+        ['IMG_5872.jpeg', 'Red oak (Quercus sp.)', 'Central Park, New York'],
+        ['IMG_6315.JPG', 'Coral tree (Erythrina sp.)', 'Home, Gurgaon'],
+        ['IMG_6301.JPG', 'Poppy (Papaver sp.)', 'Home, Gurgaon'],
+        ['IMG_6089.JPG', 'Peacock flower (Caesalpinia pulcherrima)', 'Home, Gurgaon'],
+        ['IMG_6070.JPG', 'Sulphur cosmos (Cosmos sulphureus)', 'Home, Gurgaon'],
+        ['IMG_6012.JPG', 'Gulmohar (Delonix regia)', 'Home, Gurgaon'],
+        ['IMG_2788.JPG', 'Peacock flower at night (Caesalpinia pulcherrima)', 'Home, Gurgaon'],
+        ['IMG_5053.jpeg', 'Single dahlia (Dahlia sp.) with honeybee', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5048.jpeg', 'Single dahlia, backlit', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5084.jpeg', 'Blue water lily (Nymphaea sp.)', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5058.jpeg', 'Sweet William (Dianthus barbatus)', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5052.jpeg', 'California poppy (Eschscholzia californica)', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5075.jpeg', 'New leaves and flower buds against the sky', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5067.jpeg', 'Backlit leaves and bare branches', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_0678.jpeg', 'Cherry blossom (Prunus serrulata), backlit', 'Central Park, New York'],
+        ['IMG_0667.jpeg', 'Cherry blossom against blue sky', 'Central Park, New York'],
+        ['IMG_0586.jpeg', 'Cherry blossom with new red leaves', 'Central Park, New York'],
+        ['IMG_0581.jpeg', 'Cherry blossom cluster', 'Central Park, New York'],
+        ['IMG_0517.jpeg', 'Saucer magnolia (Magnolia × soulangeana), backlit', 'Central Park, New York'],
+        ['IMG_0518.jpeg', 'Saucer magnolia and Midtown towers', 'Central Park, New York'],
+        ['IMG_4667-5ce15bec.jpeg', 'Billygoat weed (Ageratum conyzoides)', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4657-868e8509.jpeg', 'Dry seed capsules (Hibiscus sp.)', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4656-ae5ec6af.jpeg', 'Single seed capsule', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4599-6e0d2584.jpeg', 'Branch in silhouette, monochrome', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4647-ea2891fa.jpeg', 'Rain on a bellyache bush leaf (Jatropha gossypiifolia)', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4631-39561955.jpeg', 'Aloe flower spike (Aloe sp.)', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4588-e7c0abdc.jpeg', 'Wild fruit on a bare branch (Diospyros sp.)', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4522-2da45b8e.jpeg', 'Thorny scrub, turning leaves', 'Asola Bhatti Wildlife Sanctuary, New Delhi']] },
+      { title: 'Fauna', code: 'FA', blurb: 'Insects, birds and the animals that live alongside us.', imgs: [
+        ['IMG_6079.JPG', 'Carpenter bee (Xylocopa sp.) on sunflower', 'Home, Gurgaon'],
+        ['IMG_6050.JPG', 'Plain tiger (Danaus chrysippus)', 'Home, Gurgaon'],
+        ['IMG_6068.JPG', 'Pioneer white (Belenois aurota) on lantana', 'Home, Gurgaon'],
+        ['IMG_6060.JPG', 'Paper wasp (Polistes sp.)', 'Home, Gurgaon'],
+        ['IMG_6057.JPG', 'Lime blue / cupid (Lycaenidae)', 'Home, Gurgaon'],
+        ['IMG_6040.JPG', 'Pioneer white (Belenois aurota), at rest', 'Home, Gurgaon'],
+        ['IMG_6036.JPG', 'House sparrow (Passer domesticus)', 'Home, Gurgaon'],
+        ['IMG_2974.JPG', 'Indian palm squirrel (Funambulus palmarum)', 'Grandparents’ House, Haridwar'],
+        ['_MG_1074.JPG', 'Puppy, play bow', 'School, Gurgaon'],
+        ['IMG_1735.jpg', 'Street dog, portrait', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_5098.jpeg', 'Palm squirrel with a corn kernel', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5089.jpeg', 'Palm squirrel on bark, evening light', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_2253.jpg', 'Calico cat, on a carton', 'Near the Gateway of India, Mumbai'],
+        ['IMG_2246.jpg', 'Calico cat, resting', 'Near the Gateway of India, Mumbai'],
+        ['IMG_6072.JPG', 'Carpenter bee (Xylocopa sp.), foraging', 'Home, Gurgaon'],
+        ['IMG_5041.jpeg', 'Two honeybees (Apis sp.) on a dahlia', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5043.jpeg', 'Honeybee (Apis sp.) on a dahlia disc', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5035.jpeg', 'Street dog, asleep', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_5028.jpeg', 'Northern palm squirrel (Funambulus pennantii) on stone', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5011.jpeg', 'Palm squirrel foraging by neem leaves', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5034.jpeg', 'Brindle dog, asleep in the grass', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_4662-3d11952b.jpeg', 'Honeybee (Apis sp.) approaching ageratum', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4612-e570a7aa.jpeg', 'Black drongo (Dicrurus macrocercus)', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4547-0d03ef95.jpeg', 'Nilgai (Boselaphus tragocamelus) in scrub', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_0537.jpeg', 'Eastern gray squirrel (Sciurus carolinensis)', 'Central Park, New York'],
+        ['IMG_1258.JPG', 'Red-eared slider (Trachemys scripta elegans)', 'Central Park, New York'],
+        ['IMG_1257.JPG', 'Red-eared slider (Trachemys scripta elegans)', 'Central Park, New York'],
+        ['IMG_5422.JPG', 'Green bee-eater (Merops orientalis) on barbed wire', 'Near school, Gurgaon'],
+        ['IMG_5417.JPG', 'Goats (Capra hircus), foraging', 'Near school, Gurgaon'],
+        ['IMG_5444.JPG', 'Street dog, watching', 'Near school, Gurgaon'],
+        ['IMG_5445.JPG', 'Street dog, ear up', 'Near school, Gurgaon'],
+        ['IMG_2498.jpeg', 'Tabby cat in evening light', 'Jersey City, New Jersey'],
+        ['IMG_2443.jpeg', 'Tabby cat, resting', 'Jersey City, New Jersey'],
+        ['IMG_2773.jpeg', 'Bodega cat in a cellar hatch', 'New York']] },
+      { title: 'Landscape', code: 'LS', blurb: 'Places and weather, near and far from home.', imgs: [
+        ['IMG_5867.jpeg', 'Reservoir, late afternoon', 'Central Park, New York'],
+        ['IMG_5809.jpg', 'Bow Bridge, autumn', 'Central Park, New York'],
+        ['IMG_5853.jpg', 'Reservoir, north shore', 'Central Park, New York'],,
+        ['IMG_2601.JPG', 'City at dusk', 'Home, Gurgaon'],
+        ['IMG_2320.JPG', 'Mangroves and the Mumbai skyline, monsoon', 'Navi Mumbai, Maharashtra'],
+        ['IMG_1859.jpg', 'Sunset over the bay', 'Navi Mumbai, Maharashtra'],
+        ['IMG_9719.jpeg', 'Upper rapids, Horseshoe Falls', 'Niagara Falls, New York'],
+        ['IMG_0392.JPG', 'Delaware Water Gap from the ridge', 'Mount Tammany, New Jersey'],
+        ['IMG_0429.JPG', 'Ridgeline, late winter', 'Mount Tammany, New Jersey'],
+        ['IMG_0445.JPG', 'Winter forest, low sun', 'Mount Tammany, New Jersey'],
+        ['IMG_0443.JPG', 'Bare oaks on a rocky ridge', 'Mount Tammany, New Jersey'],
+        ['IMG_5069.jpeg', 'Garden hedge, morning light', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_4518-ebbd24f1.jpeg', 'Forked trunks, dry scrub forest', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4511-070ae468.jpeg', 'Scrub woodland, winter haze', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_4603-380eda3d.jpeg', 'Sun through bare branches', 'Asola Bhatti Wildlife Sanctuary, New Delhi'],
+        ['IMG_2726.jpeg', 'Lower Manhattan at sunset', 'From the Hudson waterfront, New Jersey']] },
+      { title: 'City & Light', code: 'CL', blurb: 'Buildings, and the way light falls on things.', imgs: [
+        ['IMG_0141.JPG', 'Lamp post and Flatiron Building', 'New York'],
+        ['IMG_0144.JPG', 'Flatiron Building, red signal', 'New York'],
+        ['IMG_0159.JPG', 'Flatiron Building under scaffolding', 'New York'],
+        ['IMG_0063.JPG', 'Flatiron Building through trees', 'New York'],
+        ['IMG_0057.JPG', 'Window glint, East 23rd Street', 'New York'],
+        ['IMG_0054.JPG', 'Met Life Tower and towers, sepia', 'New York'],
+        ['IMG_0183.JPG', 'Facade against blue sky', 'New York'],
+        ['IMG_2259.jpg', 'Chhatrapati Shivaji Terminus', 'Mumbai'],
+        ['IMG_1442.jpg', 'Mirror mosaic, Sheesh Mahal', 'Amer Fort, Jaipur'],
+        ['IMG_1443.jpg', 'Mirror ceiling detail', 'Amer Fort, Jaipur'],
+        ['IMG_0204.jpeg', 'Towers from street level', 'New York'],
+        ['IMG_1796.jpg', 'Tealights', 'Home, Gurgaon'],
+        ['IMG_1765.jpg', 'Tealights and bokeh', 'Home, Gurgaon'],
+        ['IMG_5071.jpeg', 'Fountain jet on carved stone', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_4885.jpeg', 'Painted ceiling medallion', 'Humayun’s Tomb, New Delhi'],
+        ['IMG_5309.JPG', 'Glass spheres, light installation', 'India Art Fair, New Delhi'],
+        ['IMG_5231.JPG', 'Filament bulbs on red mounts', 'India Art Fair, New Delhi'],
+        ['IMG_5225.JPG', 'Single filament bulb in focus', 'India Art Fair, New Delhi']] }
+    ];
+    let pl = 0;
+    const series = defs.map((d, i) => {
+      const start = pl + 1;
+      const DATES = {"IMG_5417.JPG":"2020.03.05","IMG_5422.JPG":"2020.03.05","IMG_5444.JPG":"2020.03.05","IMG_5445.JPG":"2020.03.05","IMG_2498.jpeg":"2026.07.21","IMG_2443.jpeg":"2026.06.30","IMG_2726.jpeg":"2026.09.07","IMG_2773.jpeg":"2026.09.18","06BEB729-16D5-4737-9AB9-863C413856A8.JPG":"2021.11.23","MVI_0878_still.jpeg":"2023.08.06","MVI_0986_still.jpeg":"2023.08.06","IMG_1272.JPG":"2024.08.17","IMG_5872.jpeg":"2021.11.23","IMG_6315.JPG":"2021.02.20","IMG_6301.JPG":"2021.02.20","IMG_6089.JPG":"2020.05.18","IMG_6070.JPG":"2020.05.18","IMG_6012.JPG":"2020.05.18","IMG_2788.JPG":"2019.10.27","IMG_5053.jpeg":"2020.01.11","IMG_5048.jpeg":"2020.01.11","IMG_5084.jpeg":"2020.01.11","IMG_5058.jpeg":"2020.01.11","IMG_5052.jpeg":"2020.01.11","IMG_5075.jpeg":"2020.01.11","IMG_5067.jpeg":"2020.01.11","IMG_0678.jpeg":"2023.06.26","IMG_0667.jpeg":"2023.06.26","IMG_0586.jpeg":"2023.06.26","IMG_0581.jpeg":"2023.06.26","IMG_0517.jpeg":"2023.06.26","IMG_0518.jpeg":"2023.06.26","IMG_4667-5ce15bec.jpeg":"2020.01.04","IMG_4657-868e8509.jpeg":"2020.01.04","IMG_4656-ae5ec6af.jpeg":"2020.01.04","IMG_4599-6e0d2584.jpeg":"2020.01.04","IMG_4647-ea2891fa.jpeg":"2020.01.04","IMG_4631-39561955.jpeg":"2020.01.04","IMG_4588-e7c0abdc.jpeg":"2020.01.04","IMG_4522-2da45b8e.jpeg":"2020.01.04","IMG_6079.JPG":"2020.05.18","IMG_6050.JPG":"2020.05.18","IMG_6068.JPG":"2020.05.18","IMG_6060.JPG":"2020.05.18","IMG_6057.JPG":"2020.05.18","IMG_6040.JPG":"2020.05.18","IMG_6036.JPG":"2020.05.18","IMG_2974.JPG":"2019.11.30","_MG_1074.JPG":"2019.12.17","IMG_1735.jpg":"2020.01.04","IMG_5098.jpeg":"2020.01.11","IMG_5089.jpeg":"2020.01.11","IMG_2253.jpg":"2018.05.26","IMG_2246.jpg":"2018.05.26","IMG_6072.JPG":"2020.05.18","IMG_6081.JPG":"2020.05.18","IMG_5041.jpeg":"2020.01.11","IMG_5043.jpeg":"2020.01.11","IMG_5035.jpeg":"2020.01.11","IMG_5028.jpeg":"2020.01.11","IMG_5011.jpeg":"2020.01.11","IMG_5034.jpeg":"2020.01.11","IMG_4662-3d11952b.jpeg":"2020.01.04","IMG_4612-e570a7aa.jpeg":"2020.01.04","IMG_4547-0d03ef95.jpeg":"2020.01.04","IMG_0537.jpeg":"2023.06.26","IMG_1258.JPG":"2024.08.17","IMG_1257.JPG":"2024.08.17","IMG_5867.jpeg":"2021.11.23","IMG_5809.jpg":"2021.11.23","IMG_5853.jpg":"2021.11.23","IMG_5865.jpg":"2021.11.23","IMG_2601.JPG":"2019.09.26","IMG_2320.JPG":"2018.09.07","IMG_1859.jpg":"2018.02.10","IMG_9719.jpeg":"2024.05.18","IMG_0392.JPG":"2023.06.04","IMG_0429.JPG":"2023.06.04","IMG_0445.JPG":"2023.06.04","IMG_0443.JPG":"2023.06.04","IMG_5069.jpeg":"2020.01.11","IMG_4518-ebbd24f1.jpeg":"2020.01.04","IMG_4511-070ae468.jpeg":"2020.01.04","IMG_4603-380eda3d.jpeg":"2020.01.04","IMG_0141.JPG":"2023.02.11","IMG_0144.JPG":"2023.02.11","IMG_0159.JPG":"2023.02.11","IMG_0063.JPG":"2023.02.06","IMG_0057.JPG":"2023.02.06","IMG_0054.JPG":"2023.02.06","IMG_0183.JPG":"2023.02.11","IMG_2259.jpg":"2018.05.26","IMG_1442.jpg":"2016.12.17","IMG_1443.jpg":"2016.12.17","IMG_0204.jpeg":"2023.05.07","IMG_1796.jpg":"2017.10.19","IMG_1765.jpg":"2017.10.18","IMG_5071.jpeg":"2020.01.11","IMG_4885.jpeg":"2020.01.11","IMG_5309.JPG":"2020.02.02","IMG_5231.JPG":"2020.02.02","IMG_5225.JPG":"2020.02.02"};
+      const images = d.imgs.map(([f, subject, loc], j) => {
+        pl++;
+        return { id: `v2-${d.code}-${j + 1}`, src: 'web/' + f.replace(/[^A-Za-z0-9._-]/g, '_').replace(/\.(jpe?g|png)$/i, '.jpg'), pl: String(pl).padStart(3, '0'), ph: `${d.title} — plate ${String(pl).padStart(3, '0')}`, subject, loc, date: DATES[f] || '—' };
+      });
+      const num = String(i + 1);
+      const hue = [150, 310, 240, 25][i];
+      return { color: `oklch(0.85 0.045 ${hue})`, ink: `oklch(0.45 0.05 ${hue})`, tint: `oklch(0.955 0.018 ${hue})`, num, title: d.title, code: d.code, blurb: d.blurb, images, anchor: `sec-${d.code}`, doodle2: 'doodles/' + ({ FL: 'mushroom', FA: 'snail', LS: 'cloud', CL: 'moon' }[d.code]) + '.svg', doodle: 'doodles/' + ({ FL: 'leaf', FA: 'bee', LS: 'mountain', CL: 'bulb' }[d.code]) + '.svg', href: `#sec-${d.code}`, range: `Pl. ${String(start).padStart(3, '0')}–${String(pl).padStart(3, '0')}` };
+    });
+    return {
+      series, total: pl,
+      isPlates: view === 'Plates', isSheet: view === 'Contact sheet',
+      showMeta: this.props.showMeta ?? true,
+      paperGrid: this.props.paperGrid ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
